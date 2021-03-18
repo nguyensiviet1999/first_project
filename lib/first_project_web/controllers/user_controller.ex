@@ -1,6 +1,6 @@
 defmodule FirstProjectWeb.UserController do
   use FirstProjectWeb, :controller
-
+  plug FirstProjectWeb.Plugs.Locale, "en" when action in [:index]
   alias FirstProject.Accounts
   alias FirstProject.Accounts.User
 
