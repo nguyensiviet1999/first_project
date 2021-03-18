@@ -1,0 +1,3 @@
+hello <%= @name %>
+<br>
+This is my first project Phoenix
