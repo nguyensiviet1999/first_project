@@ -20,6 +20,7 @@ defmodule FirstProjectWeb.Router do
     get "/", PageController, :index
     get "/hello/:name", HelloController, :world
     resources "/users", UserController
+    resources "/categories", CategoryController
   end
 
   # Other scopes may use custom stacks.

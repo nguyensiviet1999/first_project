@@ -13,6 +13,6 @@ defmodule FirstProject.Category do
     category
     |> cast(attrs, [:name])
     |> validate_required([:name])
-    |>validate_length(:name, max: 255 )
+    |> validate_length(:name, max: 255 )
   end
 end

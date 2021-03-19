@@ -1,0 +1,26 @@
+<%= link "Create new Category", to: Routes.category_path(@conn, :new) %>
+<table>
+	<thead>
+		<tr>
+			<th>
+				Category Name
+			</th>
+			<th>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= for category <- @categories do %>
+			<tr>
+				<td>
+					<%= category.name %>
+				</td>
+				<td>
+					<%= link "show", to: Routes.category_path(@conn, :show, category) %>
+					<%= link "edit", to: Routes.category_path(@conn, :edit, category) %>
+					<%= link "delete", to: Routes.category_path(@conn, :delete, category), method: :delete, data: [confirm: "Are you sure?"] %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>

@@ -1,0 +1,4 @@
+<div class = "jumbotron">
+	<h2>Category is <%= @category.name %></h2>
+</div>
+<%= link "Back to index", to: Routes.category_path(@conn, :index) %>
