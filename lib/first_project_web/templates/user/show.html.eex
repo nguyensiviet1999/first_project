@@ -17,6 +17,15 @@
     <%= @user.password %>
   </li>
 
+  <li>
+    <strong>List video</strong>
+    <ul>
+    <%= for video <- @user.videos do %>
+      <li><%= video.title %></li>
+    <% end %>
+
+    </ul>
+  </li>
 </ul>
 
 <span><%= link "Edit", to: Routes.user_path(@conn, :edit, @user) %></span>

@@ -6,7 +6,8 @@ defmodule FirstProject.Repo.Migrations.CreateCategories do
       add :name, :string
 
       timestamps()
-    end
 
+    end
+    create unique_index(:categories, [:name])
   end
 end

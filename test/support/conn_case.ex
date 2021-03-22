@@ -25,7 +25,7 @@ defmodule FirstProjectWeb.ConnCase do
       import FirstProjectWeb.ConnCase
 
       alias FirstProjectWeb.Router.Helpers, as: Routes
-
+      import FirstProject.TestHelpers
       # The default endpoint for testing
       @endpoint FirstProjectWeb.Endpoint
     end

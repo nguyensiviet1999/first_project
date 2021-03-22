@@ -35,7 +35,11 @@ defmodule FirstProject.Accounts do
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def get_user!(id) do
+    User
+    |> Repo.get!(id)
+    |> Repo.preload(:videos)
+  end
 
   @doc """
   Creates a user.
@@ -51,7 +55,7 @@ defmodule FirstProject.Accounts do
   """
   def create_user(attrs \\ %{}) do
     %User{}
-    |> User.changeset(attrs)
+    |> User.registration_changeset(attrs)
     |> Repo.insert()
   end
 
@@ -69,7 +73,7 @@ defmodule FirstProject.Accounts do
   """
   def update_user(%User{} = user, attrs) do
     user
-    |> User.changeset(attrs)
+    |> User.registration_changeset(attrs)
     |> Repo.update()
   end
 
@@ -99,6 +103,6 @@ defmodule FirstProject.Accounts do
 
   """
   def change_user(%User{} = user, attrs \\ %{}) do
-    User.changeset(user, attrs)
+    User.registration_changeset(user, attrs)
   end
 end

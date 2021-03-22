@@ -20,10 +20,13 @@ defmodule FirstProjectWeb do
   def controller do
     quote do
       use Phoenix.Controller, namespace: FirstProjectWeb
-
+      alias FirstProject.Repo
+      import Ecto
+      import Ecto.Query
       import Plug.Conn
       import FirstProjectWeb.Gettext
       alias FirstProjectWeb.Router.Helpers, as: Routes
+      import FirstProjectWeb.Auth, only: [authenticate_user: 2] # New import
     end
   end
 
@@ -48,6 +51,7 @@ defmodule FirstProjectWeb do
 
       import Plug.Conn
       import Phoenix.Controller
+      import FirstProjectWeb.Auth, only: [authenticate_user: 2] # New import
     end
   end
 

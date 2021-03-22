@@ -13,3 +13,8 @@ user_data_fake = [%{id: "1", name: "José", email: "josevalim", password: "elixi
 %{id: "2", name: "Bruce", email: "redrapids", password: "7langs"},
 %{id: "3", name: "Chris", email: "chrismccord", password: "phx"}]
 user_data_fake |> Enum.each(&(FirstProject.Accounts.create_user(&1)))
+alias FirstProject.Repo
+alias FirstProject.Category
+for category <- ~w(Action Drama Romance Comedy Sci-fi) do
+Repo.insert!(%Category{name: category})
+end

@@ -8,6 +8,7 @@ defmodule FirstProjectWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug FirstProjectWeb.Plugs.Locale, "en"
+    plug FirstProjectWeb.Auth, repo: FirstProject.Repo
   end
 
   pipeline :api do
@@ -21,8 +22,12 @@ defmodule FirstProjectWeb.Router do
     get "/hello/:name", HelloController, :world
     resources "/users", UserController
     resources "/categories", CategoryController
+    resources "/sessions", SessionController, only: [:new, :create, :delete]
   end
-
+  scope "/manage", FirstProjectWeb do
+    pipe_through [:browser, :authenticate_user]
+    resources "/videos", VideoController
+  end
   # Other scopes may use custom stacks.
   # scope "/api", FirstProjectWeb do
   #   pipe_through :api
