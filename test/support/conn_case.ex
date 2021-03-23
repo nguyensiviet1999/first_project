@@ -23,7 +23,7 @@ defmodule FirstProjectWeb.ConnCase do
       import Plug.Conn
       import Phoenix.ConnTest
       import FirstProjectWeb.ConnCase
-
+      import Ecto.Query
       alias FirstProjectWeb.Router.Helpers, as: Routes
       import FirstProject.TestHelpers
       # The default endpoint for testing

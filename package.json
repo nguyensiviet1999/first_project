@@ -1,0 +1,27 @@
+{
+  "name": "first_project",
+  "version": "1.0.0",
+  "description": "To start your Phoenix server:",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyensiviet1999/first_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyensiviet1999/first_project/issues"
+  },
+  "homepage": "https://github.com/nguyensiviet1999/first_project#readme",
+  "devDependencies": {
+    "css-brunch": "^2.10.0",
+    "javascript-brunch": "^2.10.0"
+  }
+}

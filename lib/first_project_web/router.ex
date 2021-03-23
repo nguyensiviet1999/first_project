@@ -23,6 +23,7 @@ defmodule FirstProjectWeb.Router do
     resources "/users", UserController
     resources "/categories", CategoryController
     resources "/sessions", SessionController, only: [:new, :create, :delete]
+    get "/watch/:id", WatchController, :show
   end
   scope "/manage", FirstProjectWeb do
     pipe_through [:browser, :authenticate_user]

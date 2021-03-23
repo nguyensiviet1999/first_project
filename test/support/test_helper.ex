@@ -4,7 +4,7 @@ defmodule FirstProject.TestHelpers do
   def insert_user(attrs \\ %{}) do
     changes = Dict.merge(%{
       name: "Some user",
-      email: "user#{Base.encode16(:crypto.rand_bytes(8))}",
+      email: "user#{Enum.random(0..10)}",
       password: "supersecret",
     },attrs)
     %User{}

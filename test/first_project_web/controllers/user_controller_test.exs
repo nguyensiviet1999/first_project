@@ -3,9 +3,9 @@ defmodule FirstProjectWeb.UserControllerTest do
 
   alias FirstProject.Accounts
 
-  @create_attrs %{"email": "some email", name: "some name", password: "some password"}
-  @update_attrs %{"email": "some updated email", name: "some updated name", password: "some updated password"}
-  @invalid_attrs %{"email": nil, name: nil, password: nil}
+  @create_attrs %{email: "some email", name: "some name", password: "some password"}
+  @update_attrs %{email: "some updated email", name: "some updated name", password: "some updated password"}
+  @invalid_attrs %{email: nil, name: nil, password: nil}
 
   def fixture(:user) do
     {:ok, user} = Accounts.create_user(@create_attrs)

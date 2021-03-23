@@ -7,7 +7,7 @@ defmodule FirstProject.Accounts do
   alias FirstProject.Repo
 
   alias FirstProject.Accounts.User
-  defstruct [:id, :name, :username, :password]
+  defstruct [:id, :name, :email, :password]
   @doc """
   Returns the list of users.
 
