@@ -9,6 +9,7 @@ defmodule FirstProject.Videos.Video do
     field :slug, :string
     belongs_to :user, FirstProject.Accounts.User
     belongs_to :category, FirstProject.Category
+    has_many :annotations, FirstProject.Multimedia.Annotation
     timestamps()
   end
   # @required_fields ~w(url title description)

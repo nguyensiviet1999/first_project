@@ -7,8 +7,9 @@ defmodule FirstProject.Accounts.User do
     field :name, :string
     field :password, :string
     field :password_hash, :string
+    field :password_confirmation, :string, virtual: true
     has_many :videos, FirstProject.Videos.Video
-
+    has_many :annotations, FirstProject.Multimedia.Annotation
     timestamps()
   end
 
@@ -25,6 +26,7 @@ defmodule FirstProject.Accounts.User do
     |> changeset(params)
     |> cast(params,[:password])
     |> validate_length(:password, min: 6, max: 100)
+    |> validate_confirmation(:password)
     |> put_pass_hash()
   end
 

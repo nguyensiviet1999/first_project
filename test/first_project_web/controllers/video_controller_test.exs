@@ -69,7 +69,7 @@ defmodule FirstProjectWeb.VideoControllerTest do
     %{user: owner, conn: conn} do
 
     video = insert_video(owner, @valid_attrs)
-    non_owner = insert_user(username: "sneaky")
+    non_owner = insert_user(email: "sneaky")
     conn = assign(conn, :current_user, non_owner)
 
     assert_error_sent :not_found, fn ->

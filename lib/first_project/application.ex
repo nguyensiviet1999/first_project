@@ -14,7 +14,8 @@ defmodule FirstProject.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: FirstProject.PubSub},
       # Start the Endpoint (http/https)
-      FirstProjectWeb.Endpoint
+      FirstProjectWeb.Endpoint,
+      FirstProjectWeb.Presence
       # Start a worker by calling: FirstProject.Worker.start_link(arg)
       # {FirstProject.Worker, arg}
     ]

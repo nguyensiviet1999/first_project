@@ -20,7 +20,9 @@ defmodule FirstProject.Accounts do
   def list_users do
     Repo.all(User)
   end
-
+  def list_users_with_ids(ids) do
+    Repo.all(from(u in User, where: u.id in ^ids))
+  end
   @doc """
   Gets a single user.
 

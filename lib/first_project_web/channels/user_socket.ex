@@ -3,7 +3,8 @@ defmodule FirstProjectWeb.UserSocket do
 
   ## Channels
   # channel "room:*", FirstProjectWeb.RoomChannel
-
+  ## Channels
+  channel "videos:*", FirstProjectWeb.VideoChannel
   # Socket params are passed from the client and can
   # be used to verify and authenticate a user. After
   # verification, you can put default assigns into
@@ -15,11 +16,20 @@ defmodule FirstProjectWeb.UserSocket do
   #
   # See `Phoenix.Token` documentation for examples in
   # performing token verification on connect.
+  ## Transports
+  transport :websocket, Phoenix.Transports.WebSocket
+  # transport :longpoll, Phoenix.Transports.LongPoll
+  @max_age 2 * 7 * 24 * 60 * 60
   @impl true
-  def connect(_params, socket, _connect_info) do
-    {:ok, socket}
+  def connect(%{"token" => token}, socket, _connect_info) do
+    case Phoenix.Token.verify(socket, "user socket", token, max_age: @max_age) do
+      {:ok, user_id} ->
+        {:ok, assign(socket, :user_id, user_id)}
+      {:error, _reason} ->
+        :error
+    end
   end
-
+  def connect(_params, _socket), do: :error
   # Socket id's are topics that allow you to identify all sockets for a given user:
   #
   #     def id(socket), do: "user_socket:#{socket.assigns.user_id}"
@@ -31,5 +41,5 @@ defmodule FirstProjectWeb.UserSocket do
   #
   # Returning `nil` makes this socket anonymous.
   @impl true
-  def id(_socket), do: nil
+  def id(socket), do: "users_socket:#{socket.assigns.user_id}"
 end
